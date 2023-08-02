@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -50,7 +49,6 @@ public class EventsPage extends AbsBasePage {
     @FindBy(css = ".dod_new-type__text")
     List<WebElement> filteredEventsTypeList;
 
-    // Метод для проверки текста в списке и в случае непустого списка, проверки текста каждого элемента
     public boolean checkFilteredEventsCards(String filterName, String noEventsMassage) {
         if (!filteredEventsList.isEmpty()) {
             boolean expectedText = true;

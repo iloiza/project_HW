@@ -14,14 +14,15 @@ public abstract class AbsPageObject {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public WebElement $(By locator){
+
+    public WebElement $(By locator) {
         return driver.findElement(locator);
     }
 
-    public WebElement $(String xpathCssSelector){
-        if(xpathCssSelector.startsWith("/")){
+    public WebElement $(String xpathCssSelector) {
+        if (xpathCssSelector.startsWith("/")) {
             return $(By.xpath(xpathCssSelector));
-        }else{
+        } else {
             return $(By.cssSelector(xpathCssSelector));
         }
     }

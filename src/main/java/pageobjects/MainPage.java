@@ -1,6 +1,5 @@
 package pageobjects;
 
-import commons.AbsPageObject;
 import org.openqa.selenium.WebDriver;
 
 public class MainPage extends AbsBasePage {

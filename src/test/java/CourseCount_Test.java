@@ -6,8 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageobjects.MainPage;
@@ -44,14 +42,13 @@ public class CourseCount_Test {
     }
 
     @Test
-    public void checkCourseCount() throws InterruptedException {
+    public void checkCourseCount() {
         new MainPage(driver).open();
         new StudyAreasMenuComponent(driver).clickAreasOfStudy(StudyAreasData.TESTING, 1);
-        Thread.sleep(5000);
-        new ChoosingCoursePage(driver).checkOpenedPageOfCourse(StudyAreasData.TESTING);
-        new ChoosingCoursePage(driver).clickButton(By
+        ChoosingCoursePage choosingCoursePage = new ChoosingCoursePage(driver);
+        choosingCoursePage.checkOpenedPageOfCourse(StudyAreasData.TESTING);
+        choosingCoursePage.clickButton(By
                 .xpath("//button[contains(text(),'Показать еще')]"));
-        Thread.sleep(10000);
         new ChoosingCoursePage(driver).checkCountOfCourses(11);
     }
 
